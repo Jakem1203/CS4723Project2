@@ -6,5 +6,15 @@ pipeline {
             	sh "mvn -B -DskipTests clean package"
             }
         }
+        stage('test') {
+            steps {
+                sh "mvn test"
+            }
+        }
+        stage('deliver') {
+            steps {
+                sh "deliver.sh"
+            }
+        }
     }
 }
